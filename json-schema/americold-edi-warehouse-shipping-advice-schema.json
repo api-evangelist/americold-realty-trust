@@ -1,0 +1,100 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/americold-realty-trust/refs/heads/main/json-schema/americold-edi-warehouse-shipping-advice-schema.json",
+  "title": "AmericoldEdiWarehouseShippingAdvice",
+  "description": "An Americold EDI 945 Warehouse Shipping Advice transmitted from an Americold facility to the depositor confirming that a shipment was made, with as-shipped quantities, lot detail, and temperature compliance for reconciliation against the original 940 shipping order.",
+  "type": "object",
+  "properties": {
+    "adviceId": {
+      "type": "string",
+      "description": "Americold-generated shipping advice identifier",
+      "example": "ADV-2026-887301"
+    },
+    "shipmentId": {
+      "type": "string",
+      "description": "Depositor's original 940 shipping order identifier this advice corresponds to",
+      "example": "SO-2026-118473"
+    },
+    "facilityCode": {
+      "type": "string",
+      "description": "Americold facility code that fulfilled the shipment",
+      "example": "ATL-04"
+    },
+    "depositorId": {
+      "type": "string",
+      "description": "Americold-assigned depositor account identifier",
+      "example": "DEP-49021"
+    },
+    "actualShipDate": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Date and time the shipment actually departed the facility",
+      "example": "2026-05-06T14:32:00Z"
+    },
+    "trailerNumber": {
+      "type": "string",
+      "description": "Trailer or container identifier used for the shipment",
+      "example": "TRL-44129"
+    },
+    "sealNumber": {
+      "type": "string",
+      "description": "Tamper-evident seal number applied at dispatch",
+      "example": "SE-991023"
+    },
+    "billOfLadingNumber": {
+      "type": "string",
+      "description": "Bill of lading reference number",
+      "example": "BOL-2026-77291-A"
+    },
+    "carrierScac": {
+      "type": "string",
+      "description": "Standard Carrier Alpha Code of the outbound carrier",
+      "example": "ACLD"
+    },
+    "loadTemperatureF": {
+      "type": "number",
+      "description": "Trailer pulp/probe temperature recorded at load completion in Fahrenheit",
+      "example": -8.4
+    },
+    "lineItems": {
+      "type": "array",
+      "description": "Line-level as-shipped detail",
+      "items": {
+        "$ref": "#/$defs/ShippingAdviceLineItem"
+      }
+    },
+    "totalWeightLbs": {
+      "type": "number",
+      "description": "Total shipment weight in pounds",
+      "example": 38400.0
+    },
+    "totalPallets": {
+      "type": "integer",
+      "description": "Total pallet count on the shipment",
+      "example": 20
+    }
+  },
+  "required": ["adviceId", "shipmentId", "facilityCode", "actualShipDate", "lineItems"],
+  "$defs": {
+    "ShippingAdviceLineItem": {
+      "type": "object",
+      "description": "A single line of product as it was actually shipped",
+      "properties": {
+        "lineNumber": {"type": "integer", "description": "Sequential line item number", "example": 1},
+        "sku": {"type": "string", "description": "Depositor SKU or item code", "example": "SKU-FROZEN-CHKN-12CT"},
+        "gtin": {"type": "string", "description": "Global Trade Item Number (UPC/EAN)", "example": "00819472003217"},
+        "lotNumber": {"type": "string", "description": "Lot or batch number actually shipped", "example": "LOT-26W18-0042"},
+        "quantityOrdered": {"type": "integer", "description": "Quantity from the original 940", "example": 240},
+        "quantityShipped": {"type": "integer", "description": "Actual quantity shipped", "example": 240},
+        "quantityShortage": {"type": "integer", "description": "Quantity short on this line, if any", "example": 0},
+        "unitOfMeasure": {
+          "type": "string",
+          "enum": ["EA", "CS", "PL", "LB", "KG"],
+          "example": "CS"
+        },
+        "weightLbs": {"type": "number", "description": "Line weight in pounds", "example": 4800.0}
+      },
+      "required": ["lineNumber", "sku", "quantityShipped", "unitOfMeasure"]
+    }
+  }
+}

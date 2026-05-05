@@ -1,0 +1,149 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/americold-realty-trust/refs/heads/main/json-schema/americold-edi-warehouse-shipping-order-schema.json",
+  "title": "AmericoldEdiWarehouseShippingOrder",
+  "description": "An Americold EDI 940 Warehouse Shipping Order representing instructions from a depositor (customer) to an Americold cold storage facility to make, modify, or cancel a shipment of temperature-controlled product on the depositor's behalf.",
+  "type": "object",
+  "properties": {
+    "shipmentId": {
+      "type": "string",
+      "description": "Depositor's unique shipping order identifier",
+      "example": "SO-2026-118473"
+    },
+    "purposeCode": {
+      "type": "string",
+      "description": "EDI 940 purpose: Original, Cancellation, or Replace",
+      "enum": ["Original", "Cancellation", "Replace"],
+      "example": "Original"
+    },
+    "depositorId": {
+      "type": "string",
+      "description": "Americold-assigned depositor (customer) account identifier",
+      "example": "DEP-49021"
+    },
+    "depositorName": {
+      "type": "string",
+      "description": "Depositor (customer) company name",
+      "example": "Sunrise Frozen Foods, Inc."
+    },
+    "facilityCode": {
+      "type": "string",
+      "description": "Americold facility code receiving the shipping instructions",
+      "example": "ATL-04"
+    },
+    "facilityName": {
+      "type": "string",
+      "description": "Americold facility name",
+      "example": "Americold Atlanta Forest Park"
+    },
+    "orderDate": {
+      "type": "string",
+      "format": "date",
+      "description": "Date the shipping order was created",
+      "example": "2026-05-04"
+    },
+    "requestedShipDate": {
+      "type": "string",
+      "format": "date",
+      "description": "Requested date for the shipment to depart",
+      "example": "2026-05-06"
+    },
+    "requestedDeliveryDate": {
+      "type": "string",
+      "format": "date",
+      "description": "Requested delivery date at the consignee",
+      "example": "2026-05-08"
+    },
+    "carrier": {
+      "type": "object",
+      "description": "Routing carrier information",
+      "properties": {
+        "scac": {
+          "type": "string",
+          "description": "Standard Carrier Alpha Code",
+          "example": "ACLD"
+        },
+        "name": {
+          "type": "string",
+          "description": "Carrier name",
+          "example": "Americold Logistics Trucking"
+        },
+        "proNumber": {
+          "type": "string",
+          "description": "Carrier PRO/tracking number",
+          "example": "PRO-7782219"
+        }
+      }
+    },
+    "shipTo": {
+      "type": "object",
+      "description": "Consignee delivery address",
+      "properties": {
+        "name": {"type": "string", "example": "Northeast Grocers Distribution Center"},
+        "address1": {"type": "string", "example": "200 Cold Chain Drive"},
+        "city": {"type": "string", "example": "Reading"},
+        "state": {"type": "string", "example": "PA"},
+        "zip": {"type": "string", "example": "19602"},
+        "country": {"type": "string", "example": "US"}
+      }
+    },
+    "temperatureRequirements": {
+      "type": "object",
+      "description": "Temperature handling requirements for cold-chain product",
+      "properties": {
+        "minTemperatureF": {
+          "type": "number",
+          "description": "Minimum allowed temperature in Fahrenheit",
+          "example": -10
+        },
+        "maxTemperatureF": {
+          "type": "number",
+          "description": "Maximum allowed temperature in Fahrenheit",
+          "example": 0
+        },
+        "zone": {
+          "type": "string",
+          "description": "Temperature handling zone",
+          "enum": ["Frozen", "Refrigerated", "Cooler", "Ambient", "Deep Frozen"],
+          "example": "Frozen"
+        }
+      }
+    },
+    "lineItems": {
+      "type": "array",
+      "description": "Line-level product detail to be shipped",
+      "items": {
+        "$ref": "#/$defs/ShippingOrderLineItem"
+      }
+    },
+    "specialInstructions": {
+      "type": "string",
+      "description": "Free-text handling, dock, or hazmat notes",
+      "example": "Pre-cool trailer to -10F before loading. Confirm seal #SE-991023 at dispatch."
+    }
+  },
+  "required": ["shipmentId", "purposeCode", "depositorId", "facilityCode", "orderDate", "lineItems"],
+  "$defs": {
+    "ShippingOrderLineItem": {
+      "type": "object",
+      "description": "A single line of product on a warehouse shipping order",
+      "properties": {
+        "lineNumber": {"type": "integer", "description": "Sequential line item number", "example": 1},
+        "sku": {"type": "string", "description": "Depositor SKU or item code", "example": "SKU-FROZEN-CHKN-12CT"},
+        "gtin": {"type": "string", "description": "Global Trade Item Number (UPC/EAN)", "example": "00819472003217"},
+        "productDescription": {"type": "string", "description": "Product description", "example": "Frozen Chicken Breast 12ct Case"},
+        "lotNumber": {"type": "string", "description": "Lot or batch number for traceability", "example": "LOT-26W18-0042"},
+        "quantity": {"type": "integer", "description": "Quantity ordered (cases, eaches, or pallets)", "example": 240},
+        "unitOfMeasure": {
+          "type": "string",
+          "description": "Unit of measure for the quantity",
+          "enum": ["EA", "CS", "PL", "LB", "KG"],
+          "example": "CS"
+        },
+        "weightLbs": {"type": "number", "description": "Total line weight in pounds", "example": 4800.0},
+        "expirationDate": {"type": "string", "format": "date", "description": "Product use-by or best-by date", "example": "2027-02-15"}
+      },
+      "required": ["lineNumber", "sku", "quantity", "unitOfMeasure"]
+    }
+  }
+}

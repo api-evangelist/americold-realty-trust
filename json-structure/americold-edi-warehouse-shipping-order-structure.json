@@ -1,0 +1,113 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/americold-realty-trust/refs/heads/main/json-structure/americold-edi-warehouse-shipping-order-structure.json",
+  "name": "AmericoldEdiWarehouseShippingOrder",
+  "description": "An Americold EDI 940 Warehouse Shipping Order representing instructions from a depositor to an Americold cold storage facility to make, modify, or cancel a shipment of temperature-controlled product.",
+  "type": "object",
+  "properties": {
+    "shipmentId": {
+      "type": "string",
+      "description": "Depositor's unique shipping order identifier",
+      "example": "SO-2026-118473"
+    },
+    "purposeCode": {
+      "type": "string",
+      "description": "EDI 940 purpose: Original, Cancellation, or Replace",
+      "example": "Original"
+    },
+    "depositorId": {
+      "type": "string",
+      "description": "Americold-assigned depositor account identifier",
+      "example": "DEP-49021"
+    },
+    "depositorName": {
+      "type": "string",
+      "description": "Depositor company name",
+      "example": "Sunrise Frozen Foods, Inc."
+    },
+    "facilityCode": {
+      "type": "string",
+      "description": "Americold facility code receiving the shipping instructions",
+      "example": "ATL-04"
+    },
+    "facilityName": {
+      "type": "string",
+      "description": "Americold facility name",
+      "example": "Americold Atlanta Forest Park"
+    },
+    "orderDate": {
+      "type": "date",
+      "description": "Date the shipping order was created",
+      "example": "2026-05-04"
+    },
+    "requestedShipDate": {
+      "type": "date",
+      "description": "Requested shipment departure date",
+      "example": "2026-05-06"
+    },
+    "requestedDeliveryDate": {
+      "type": "date",
+      "description": "Requested delivery date at consignee",
+      "example": "2026-05-08"
+    },
+    "carrier": {
+      "type": "object",
+      "description": "Routing carrier information",
+      "properties": {
+        "scac": {"type": "string", "example": "ACLD"},
+        "name": {"type": "string", "example": "Americold Logistics Trucking"},
+        "proNumber": {"type": "string", "example": "PRO-7782219"}
+      }
+    },
+    "shipTo": {
+      "type": "object",
+      "description": "Consignee delivery address",
+      "properties": {
+        "name": {"type": "string", "example": "Northeast Grocers Distribution Center"},
+        "address1": {"type": "string", "example": "200 Cold Chain Drive"},
+        "city": {"type": "string", "example": "Reading"},
+        "state": {"type": "string", "example": "PA"},
+        "zip": {"type": "string", "example": "19602"},
+        "country": {"type": "string", "example": "US"}
+      }
+    },
+    "temperatureRequirements": {
+      "type": "object",
+      "description": "Temperature handling requirements for cold-chain product",
+      "properties": {
+        "minTemperatureF": {"type": "double", "example": -10},
+        "maxTemperatureF": {"type": "double", "example": 0},
+        "zone": {"type": "string", "example": "Frozen"}
+      }
+    },
+    "lineItems": {
+      "type": "array",
+      "description": "Line-level product detail to be shipped",
+      "items": {"$ref": "#/$defs/ShippingOrderLineItem"}
+    },
+    "specialInstructions": {
+      "type": "string",
+      "description": "Free-text handling notes",
+      "example": "Pre-cool trailer to -10F before loading."
+    }
+  },
+  "required": ["shipmentId", "purposeCode", "depositorId", "facilityCode", "orderDate", "lineItems"],
+  "$defs": {
+    "ShippingOrderLineItem": {
+      "type": "object",
+      "description": "A single line of product on a warehouse shipping order",
+      "properties": {
+        "lineNumber": {"type": "int32", "example": 1},
+        "sku": {"type": "string", "example": "SKU-FROZEN-CHKN-12CT"},
+        "gtin": {"type": "string", "example": "00819472003217"},
+        "productDescription": {"type": "string", "example": "Frozen Chicken Breast 12ct Case"},
+        "lotNumber": {"type": "string", "example": "LOT-26W18-0042"},
+        "quantity": {"type": "int32", "example": 240},
+        "unitOfMeasure": {"type": "string", "example": "CS"},
+        "weightLbs": {"type": "double", "example": 4800.0},
+        "expirationDate": {"type": "date", "example": "2027-02-15"}
+      },
+      "required": ["lineNumber", "sku", "quantity", "unitOfMeasure"]
+    }
+  }
+}

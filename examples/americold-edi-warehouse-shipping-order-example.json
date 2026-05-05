@@ -1,0 +1,54 @@
+{
+  "shipmentId": "SO-2026-118473",
+  "purposeCode": "Original",
+  "depositorId": "DEP-49021",
+  "depositorName": "Sunrise Frozen Foods, Inc.",
+  "facilityCode": "ATL-04",
+  "facilityName": "Americold Atlanta Forest Park",
+  "orderDate": "2026-05-04",
+  "requestedShipDate": "2026-05-06",
+  "requestedDeliveryDate": "2026-05-08",
+  "carrier": {
+    "scac": "ACLD",
+    "name": "Americold Logistics Trucking",
+    "proNumber": "PRO-7782219"
+  },
+  "shipTo": {
+    "name": "Northeast Grocers Distribution Center",
+    "address1": "200 Cold Chain Drive",
+    "city": "Reading",
+    "state": "PA",
+    "zip": "19602",
+    "country": "US"
+  },
+  "temperatureRequirements": {
+    "minTemperatureF": -10,
+    "maxTemperatureF": 0,
+    "zone": "Frozen"
+  },
+  "lineItems": [
+    {
+      "lineNumber": 1,
+      "sku": "SKU-FROZEN-CHKN-12CT",
+      "gtin": "00819472003217",
+      "productDescription": "Frozen Chicken Breast 12ct Case",
+      "lotNumber": "LOT-26W18-0042",
+      "quantity": 240,
+      "unitOfMeasure": "CS",
+      "weightLbs": 4800.0,
+      "expirationDate": "2027-02-15"
+    },
+    {
+      "lineNumber": 2,
+      "sku": "SKU-FROZEN-VEG-MIX-6CT",
+      "gtin": "00819472004115",
+      "productDescription": "Frozen Mixed Vegetables 6ct Case",
+      "lotNumber": "LOT-26W17-0119",
+      "quantity": 180,
+      "unitOfMeasure": "CS",
+      "weightLbs": 2160.0,
+      "expirationDate": "2027-04-01"
+    }
+  ],
+  "specialInstructions": "Pre-cool trailer to -10F before loading. Confirm seal #SE-991023 at dispatch."
+}

@@ -1,0 +1,38 @@
+{
+  "adviceId": "ADV-2026-887301",
+  "shipmentId": "SO-2026-118473",
+  "facilityCode": "ATL-04",
+  "depositorId": "DEP-49021",
+  "actualShipDate": "2026-05-06T14:32:00Z",
+  "trailerNumber": "TRL-44129",
+  "sealNumber": "SE-991023",
+  "billOfLadingNumber": "BOL-2026-77291-A",
+  "carrierScac": "ACLD",
+  "loadTemperatureF": -8.4,
+  "lineItems": [
+    {
+      "lineNumber": 1,
+      "sku": "SKU-FROZEN-CHKN-12CT",
+      "gtin": "00819472003217",
+      "lotNumber": "LOT-26W18-0042",
+      "quantityOrdered": 240,
+      "quantityShipped": 240,
+      "quantityShortage": 0,
+      "unitOfMeasure": "CS",
+      "weightLbs": 4800.0
+    },
+    {
+      "lineNumber": 2,
+      "sku": "SKU-FROZEN-VEG-MIX-6CT",
+      "gtin": "00819472004115",
+      "lotNumber": "LOT-26W17-0119",
+      "quantityOrdered": 180,
+      "quantityShipped": 175,
+      "quantityShortage": 5,
+      "unitOfMeasure": "CS",
+      "weightLbs": 2100.0
+    }
+  ],
+  "totalWeightLbs": 6900.0,
+  "totalPallets": 8
+}

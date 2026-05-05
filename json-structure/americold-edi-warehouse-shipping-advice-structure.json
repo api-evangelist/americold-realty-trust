@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/americold-realty-trust/refs/heads/main/json-structure/americold-edi-warehouse-shipping-advice-structure.json",
+  "name": "AmericoldEdiWarehouseShippingAdvice",
+  "description": "An Americold EDI 945 Warehouse Shipping Advice transmitted from an Americold facility to the depositor confirming that a shipment was made.",
+  "type": "object",
+  "properties": {
+    "adviceId": {"type": "string", "example": "ADV-2026-887301"},
+    "shipmentId": {"type": "string", "example": "SO-2026-118473"},
+    "facilityCode": {"type": "string", "example": "ATL-04"},
+    "depositorId": {"type": "string", "example": "DEP-49021"},
+    "actualShipDate": {"type": "datetime", "example": "2026-05-06T14:32:00Z"},
+    "trailerNumber": {"type": "string", "example": "TRL-44129"},
+    "sealNumber": {"type": "string", "example": "SE-991023"},
+    "billOfLadingNumber": {"type": "string", "example": "BOL-2026-77291-A"},
+    "carrierScac": {"type": "string", "example": "ACLD"},
+    "loadTemperatureF": {"type": "double", "example": -8.4},
+    "lineItems": {
+      "type": "array",
+      "description": "Line-level as-shipped detail",
+      "items": {"$ref": "#/$defs/ShippingAdviceLineItem"}
+    },
+    "totalWeightLbs": {"type": "double", "example": 38400.0},
+    "totalPallets": {"type": "int32", "example": 20}
+  },
+  "required": ["adviceId", "shipmentId", "facilityCode", "actualShipDate", "lineItems"],
+  "$defs": {
+    "ShippingAdviceLineItem": {
+      "type": "object",
+      "description": "A single line of product as actually shipped",
+      "properties": {
+        "lineNumber": {"type": "int32", "example": 1},
+        "sku": {"type": "string", "example": "SKU-FROZEN-CHKN-12CT"},
+        "gtin": {"type": "string", "example": "00819472003217"},
+        "lotNumber": {"type": "string", "example": "LOT-26W18-0042"},
+        "quantityOrdered": {"type": "int32", "example": 240},
+        "quantityShipped": {"type": "int32", "example": 240},
+        "quantityShortage": {"type": "int32", "example": 0},
+        "unitOfMeasure": {"type": "string", "example": "CS"},
+        "weightLbs": {"type": "double", "example": 4800.0}
+      },
+      "required": ["lineNumber", "sku", "quantityShipped", "unitOfMeasure"]
+    }
+  }
+}

@@ -1,0 +1,229 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "americold": "https://www.americold.com/schema/",
+    "schema": "https://schema.org/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+
+    "AmericoldEdiWarehouseShippingOrder": "americold:AmericoldEdiWarehouseShippingOrder",
+    "AmericoldEdiWarehouseShippingAdvice": "americold:AmericoldEdiWarehouseShippingAdvice",
+    "AmericoldI3plInventorySnapshot": "americold:AmericoldI3plInventorySnapshot",
+    "ShippingOrderLineItem": "americold:ShippingOrderLineItem",
+    "ShippingAdviceLineItem": "americold:ShippingAdviceLineItem",
+    "InventoryLot": "americold:InventoryLot",
+
+    "actualShipDate": {
+      "@id": "americold:actualShipDate",
+      "@type": "xsd:dateTime"
+    },
+    "adviceId": {
+      "@id": "americold:adviceId",
+      "@type": "xsd:string"
+    },
+    "billOfLadingNumber": {
+      "@id": "americold:billOfLadingNumber",
+      "@type": "xsd:string"
+    },
+    "carrier": {
+      "@id": "americold:carrier",
+      "@type": "@id"
+    },
+    "carrierScac": {
+      "@id": "americold:carrierScac",
+      "@type": "xsd:string"
+    },
+    "casesAvailable": {
+      "@id": "americold:casesAvailable",
+      "@type": "xsd:integer"
+    },
+    "casesCommitted": {
+      "@id": "americold:casesCommitted",
+      "@type": "xsd:integer"
+    },
+    "casesOnHand": {
+      "@id": "americold:casesOnHand",
+      "@type": "xsd:integer"
+    },
+    "casesOnHold": {
+      "@id": "americold:casesOnHold",
+      "@type": "xsd:integer"
+    },
+    "depositorId": {
+      "@id": "americold:depositorId",
+      "@type": "xsd:string"
+    },
+    "depositorName": {
+      "@id": "americold:depositorName",
+      "@type": "xsd:string"
+    },
+    "description": "schema:description",
+    "expirationDate": {
+      "@id": "americold:expirationDate",
+      "@type": "xsd:date"
+    },
+    "facilityCode": {
+      "@id": "americold:facilityCode",
+      "@type": "xsd:string"
+    },
+    "facilityName": {
+      "@id": "americold:facilityName",
+      "@type": "xsd:string"
+    },
+    "gtin": {
+      "@id": "americold:gtin",
+      "@type": "xsd:string"
+    },
+    "lastReceivedDate": {
+      "@id": "americold:lastReceivedDate",
+      "@type": "xsd:dateTime"
+    },
+    "lineItems": {
+      "@id": "americold:lineItems",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "lineNumber": {
+      "@id": "americold:lineNumber",
+      "@type": "xsd:integer"
+    },
+    "loadTemperatureF": {
+      "@id": "americold:loadTemperatureF",
+      "@type": "xsd:decimal"
+    },
+    "lots": {
+      "@id": "americold:lots",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "lotNumber": {
+      "@id": "americold:lotNumber",
+      "@type": "xsd:string"
+    },
+    "manufactureDate": {
+      "@id": "americold:manufactureDate",
+      "@type": "xsd:date"
+    },
+    "maxTemperatureF": {
+      "@id": "americold:maxTemperatureF",
+      "@type": "xsd:decimal"
+    },
+    "minTemperatureF": {
+      "@id": "americold:minTemperatureF",
+      "@type": "xsd:decimal"
+    },
+    "name": "schema:name",
+    "orderDate": {
+      "@id": "americold:orderDate",
+      "@type": "xsd:date"
+    },
+    "proNumber": {
+      "@id": "americold:proNumber",
+      "@type": "xsd:string"
+    },
+    "productDescription": {
+      "@id": "americold:productDescription",
+      "@type": "xsd:string"
+    },
+    "purposeCode": {
+      "@id": "americold:purposeCode",
+      "@type": "xsd:string"
+    },
+    "quantity": {
+      "@id": "americold:quantity",
+      "@type": "xsd:integer"
+    },
+    "quantityOrdered": {
+      "@id": "americold:quantityOrdered",
+      "@type": "xsd:integer"
+    },
+    "quantityShipped": {
+      "@id": "americold:quantityShipped",
+      "@type": "xsd:integer"
+    },
+    "quantityShortage": {
+      "@id": "americold:quantityShortage",
+      "@type": "xsd:integer"
+    },
+    "requestedDeliveryDate": {
+      "@id": "americold:requestedDeliveryDate",
+      "@type": "xsd:date"
+    },
+    "requestedShipDate": {
+      "@id": "americold:requestedShipDate",
+      "@type": "xsd:date"
+    },
+    "scac": {
+      "@id": "americold:scac",
+      "@type": "xsd:string"
+    },
+    "sealNumber": {
+      "@id": "americold:sealNumber",
+      "@type": "xsd:string"
+    },
+    "shipmentId": {
+      "@id": "americold:shipmentId",
+      "@type": "xsd:string"
+    },
+    "shipTo": {
+      "@id": "americold:shipTo",
+      "@type": "@id"
+    },
+    "sku": {
+      "@id": "americold:sku",
+      "@type": "xsd:string"
+    },
+    "snapshotDate": {
+      "@id": "americold:snapshotDate",
+      "@type": "xsd:dateTime"
+    },
+    "snapshotId": {
+      "@id": "americold:snapshotId",
+      "@type": "xsd:string"
+    },
+    "specialInstructions": {
+      "@id": "americold:specialInstructions",
+      "@type": "xsd:string"
+    },
+    "status": {
+      "@id": "americold:status",
+      "@type": "xsd:string"
+    },
+    "temperatureRequirements": {
+      "@id": "americold:temperatureRequirements",
+      "@type": "@id"
+    },
+    "temperatureZone": {
+      "@id": "americold:temperatureZone",
+      "@type": "xsd:string"
+    },
+    "totalCases": {
+      "@id": "americold:totalCases",
+      "@type": "xsd:integer"
+    },
+    "totalPallets": {
+      "@id": "americold:totalPallets",
+      "@type": "xsd:integer"
+    },
+    "totalWeightLbs": {
+      "@id": "americold:totalWeightLbs",
+      "@type": "xsd:decimal"
+    },
+    "trailerNumber": {
+      "@id": "americold:trailerNumber",
+      "@type": "xsd:string"
+    },
+    "unitOfMeasure": {
+      "@id": "americold:unitOfMeasure",
+      "@type": "xsd:string"
+    },
+    "weightLbs": {
+      "@id": "americold:weightLbs",
+      "@type": "xsd:decimal"
+    },
+    "zone": {
+      "@id": "americold:zone",
+      "@type": "xsd:string"
+    }
+  }
+}

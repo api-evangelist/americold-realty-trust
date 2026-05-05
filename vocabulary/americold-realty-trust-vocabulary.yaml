@@ -1,0 +1,310 @@
+vocabulary: "1.0.0"
+
+info:
+  provider: Americold Realty Trust
+  description: >-
+    Vocabulary taxonomy for Americold Realty Trust's temperature-controlled
+    logistics, real estate, and value-added services. Captures the language of
+    cold-chain warehousing, third-party logistics integration via the i-3PL
+    platform, and EDI-based supply chain document exchange between Americold
+    facilities and depositor (customer) ERP systems. No public developer-facing
+    REST API is currently published; this vocabulary models the operational and
+    capability surface customers integrate with.
+  created: "2026-05-05"
+  modified: "2026-05-05"
+
+operational:
+  apis:
+    - name: Americold i-3PL Platform
+      namespace: americold-i-3pl
+      version: current
+      baseUrl: https://www.i-3pl.com/
+      status: active
+    - name: Americold EDI
+      namespace: americold-edi
+      version: X12-4010
+      baseUrl: https://www.americold.com/technology-automation/edi-electronic-data-interchange/
+      status: active
+
+  resources:
+    - name: Warehouse Shipping Order
+      description: A 940 transaction set instructing an Americold facility to make, modify, or cancel a shipment of temperature-controlled product on behalf of a depositor.
+      api: americold-edi
+      actions: [send, receive, modify, cancel]
+    - name: Warehouse Shipping Advice
+      description: A 945 transaction set returned by an Americold facility confirming a shipment was made, with as-shipped quantities, lot detail, and load temperature.
+      api: americold-edi
+      actions: [send, reconcile]
+    - name: Warehouse Stock Transfer Shipment Advice
+      description: A 943 transaction set advising a receiving Americold facility that a stock transfer is in transit from another facility or supplier.
+      api: americold-edi
+      actions: [send, receive]
+    - name: Warehouse Stock Transfer Receipt Advice
+      description: A 944 transaction set confirming receipt of a transferred stock at the destination Americold facility.
+      api: americold-edi
+      actions: [send, confirm]
+    - name: Warehouse Inventory Adjustment Advice
+      description: A 947 transaction set communicating inventory adjustments (count differences, damage, expiration) between Americold and the depositor.
+      api: americold-edi
+      actions: [send, reconcile]
+    - name: Inventory Snapshot
+      description: An i-3PL point-in-time view of on-hand, available, committed, and held inventory by lot across one or more Americold facilities.
+      api: americold-i-3pl
+      actions: [view, export, monitor]
+    - name: Order
+      description: A customer order in i-3PL for product to be picked, staged, and shipped from an Americold cold storage facility.
+      api: americold-i-3pl
+      actions: [create, modify, cancel, track]
+    - name: Appointment
+      description: A scheduled dock appointment for a carrier to pick up or deliver product at an Americold facility.
+      api: americold-i-3pl
+      actions: [book, modify, cancel]
+    - name: Report
+      description: One of 40+ customizable i-3PL reports covering throughput, KPIs, inventory turns, and facility performance.
+      api: americold-i-3pl
+      actions: [run, schedule, export]
+    - name: Alert
+      description: An i-3PL event notification for inventory thresholds, temperature excursions, order status, or facility events.
+      api: americold-i-3pl
+      actions: [configure, receive, acknowledge]
+    - name: Lot
+      description: A traceable batch of product (manufacture, expiration, hold status) tracked at item-lot granularity within Americold facilities.
+      api: americold-i-3pl
+      actions: [trace, hold, release]
+
+  actions:
+    - verb: send
+      description: Transmit an EDI document to or from Americold
+      pattern: write
+    - verb: receive
+      description: Accept an EDI document at Americold or at the depositor
+      pattern: read
+    - verb: reconcile
+      description: Match expected (ordered) and actual (shipped/received) quantities and resolve discrepancies
+      pattern: write
+    - verb: trace
+      description: Follow a product lot from receipt through shipment for traceability and recall
+      pattern: read
+    - verb: hold
+      description: Place a lot on quality, regulatory, or customer hold preventing shipment
+      pattern: write
+    - verb: release
+      description: Remove a lot from hold and make it available to ship
+      pattern: write
+    - verb: book
+      description: Reserve a dock appointment for a carrier pick-up or delivery
+      pattern: write
+    - verb: monitor
+      description: Observe real-time inventory positions, temperature, and event streams
+      pattern: read
+    - verb: run
+      description: Execute a configurable report against i-3PL data
+      pattern: read
+
+  schemas:
+    edi:
+      - AmericoldEdiWarehouseShippingOrder
+      - AmericoldEdiWarehouseShippingAdvice
+    inventory:
+      - AmericoldI3plInventorySnapshot
+      - InventoryLot
+    fulfillment:
+      - ShippingOrderLineItem
+      - ShippingAdviceLineItem
+
+  parameters:
+    identifiers:
+      - name: depositorId
+        description: Americold-assigned depositor (customer) account identifier
+      - name: facilityCode
+        description: Americold cold storage facility code
+      - name: shipmentId
+        description: Depositor's outbound shipping order identifier
+      - name: lotNumber
+        description: Manufacturer or depositor lot/batch number for traceability
+      - name: gtin
+        description: Global Trade Item Number (UPC/EAN) for the product
+      - name: sku
+        description: Depositor stock-keeping unit identifier
+      - name: scac
+        description: Standard Carrier Alpha Code for the routing carrier
+    filters:
+      - name: temperatureZone
+        description: Filter by storage temperature zone (Frozen, Refrigerated, Cooler, Ambient, Deep Frozen)
+      - name: status
+        description: Filter inventory or order by status
+      - name: dateRange
+        description: Filter snapshots, orders, and reports by date range
+      - name: facility
+        description: Filter to a specific Americold facility or set of facilities
+
+  enums:
+    temperatureZones:
+      - Deep Frozen
+      - Frozen
+      - Refrigerated
+      - Cooler
+      - Ambient
+    ediTransactions:
+      - "940 Warehouse Shipping Order"
+      - "943 Warehouse Stock Transfer Shipment Advice"
+      - "944 Warehouse Stock Transfer Receipt Advice"
+      - "945 Warehouse Shipping Advice"
+      - "947 Warehouse Inventory Adjustment Advice"
+      - "856 Advance Ship Notice"
+      - "846 Inventory Inquiry/Advice"
+    inventoryStatuses:
+      - Available
+      - Committed
+      - Hold
+      - Damaged
+      - Quarantined
+      - Recalled
+    purposeCodes:
+      - Original
+      - Cancellation
+      - Replace
+    unitsOfMeasure:
+      - EA
+      - CS
+      - PL
+      - LB
+      - KG
+    appointmentTypes:
+      - Inbound
+      - Outbound
+      - Stock Transfer
+
+  authentication:
+    schemes:
+      - type: AS2
+        description: EDI documents transmitted via AS2 secure connection between Americold and depositor or EDI service provider
+      - type: SFTP
+        description: Bulk EDI document exchange via SFTP for partners not on AS2
+      - type: i-3PL Login
+        description: Customer-facing username/password login to the i-3PL portal at i-3pl.com (no public OAuth or API key flow is currently documented)
+    notes: >-
+      Americold does not currently publish a public developer-facing REST API or
+      OpenAPI specification. Programmatic integration is established
+      project-by-project through the EDI onboarding process and ERP-to-i-3PL
+      integrations coordinated with the Americold Service Desk
+      (servicedesk@americold.com / 1-877-762-5457).
+
+capability:
+  workflows:
+    - name: Cold Chain Outbound Fulfillment
+      description: A depositor sends a 940 Warehouse Shipping Order to an Americold facility; Americold picks, stages, and ships product; a 945 Warehouse Shipping Advice returns to the depositor for ERP reconciliation.
+      apis: [Americold EDI]
+      personas: [Supply Chain Planner, Depositor EDI Analyst, Americold Operations]
+    - name: Inventory Visibility
+      description: Depositors monitor on-hand, available, committed, and held inventory across Americold facilities using i-3PL snapshots, dashboards, and 40+ reports, with alerts on thresholds and temperature excursions.
+      apis: [Americold i-3PL Platform]
+      personas: [Supply Chain Planner, Inventory Manager, Depositor Customer Service]
+    - name: Dock Appointment Scheduling
+      description: Carriers and depositor logistics teams book, modify, and cancel dock appointments at Americold facilities through i-3PL to optimize throughput and reduce dwell time.
+      apis: [Americold i-3PL Platform]
+      personas: [Carrier Dispatch, Depositor Logistics]
+    - name: Lot Traceability and Recall
+      description: Trace a lot from receipt through every shipment to support food-safety traceability, customer recalls, and regulatory holds.
+      apis: [Americold i-3PL Platform, Americold EDI]
+      personas: [Quality Assurance, Food Safety Officer, Inventory Manager]
+    - name: Stock Transfer Between Facilities
+      description: Move inventory between Americold facilities using 943 transfer shipment advice and 944 receipt advice transactions to balance network inventory.
+      apis: [Americold EDI]
+      personas: [Supply Chain Planner, Americold Operations]
+
+  personas:
+    - id: supply-chain-planner
+      name: Supply Chain Planner
+      description: Depositor employee responsible for replenishment, demand planning, and balancing inventory across Americold facilities
+      workflows: [Cold Chain Outbound Fulfillment, Inventory Visibility, Stock Transfer Between Facilities]
+    - id: depositor-edi-analyst
+      name: Depositor EDI Analyst
+      description: Technical specialist on the depositor side managing 940/945/943/944/947 mappings and AS2 connectivity to Americold
+      workflows: [Cold Chain Outbound Fulfillment, Stock Transfer Between Facilities]
+    - id: inventory-manager
+      name: Inventory Manager
+      description: Depositor manager overseeing on-hand position, holds, expirations, and shrink across Americold facilities
+      workflows: [Inventory Visibility, Lot Traceability and Recall]
+    - id: carrier-dispatch
+      name: Carrier Dispatch
+      description: Carrier dispatcher booking pickup and delivery appointments at Americold dock doors
+      workflows: [Dock Appointment Scheduling]
+    - id: depositor-logistics
+      name: Depositor Logistics
+      description: Depositor transportation team coordinating outbound moves and dock appointments
+      workflows: [Dock Appointment Scheduling, Cold Chain Outbound Fulfillment]
+    - id: depositor-customer-service
+      name: Depositor Customer Service
+      description: Depositor team handling order status inquiries from end customers and retailers
+      workflows: [Inventory Visibility]
+    - id: quality-assurance
+      name: Quality Assurance
+      description: Depositor QA team managing holds, releases, and recalls at lot granularity
+      workflows: [Lot Traceability and Recall]
+    - id: food-safety-officer
+      name: Food Safety Officer
+      description: Regulated-food employee responsible for FSMA, HACCP, and recall readiness using lot-level traceability
+      workflows: [Lot Traceability and Recall]
+    - id: americold-operations
+      name: Americold Operations
+      description: Americold facility operations team executing shipping, receiving, and stock transfers
+      workflows: [Cold Chain Outbound Fulfillment, Stock Transfer Between Facilities]
+
+  domains:
+    - name: Cold Chain Logistics
+      description: Temperature-controlled warehousing, transportation, and value-added services for perishable food and pharma
+    - name: Third-Party Logistics
+      description: Outsourced logistics services where Americold operates fulfillment, inventory, and distribution on behalf of depositors
+    - name: Supply Chain Integration
+      description: EDI and ERP integration connecting Americold's WMS, TMS, LMS, and WES with depositor systems for real-time data exchange
+    - name: Food Safety and Traceability
+      description: Lot-level traceability, holds, recalls, and regulatory compliance (FSMA, HACCP) across the cold chain
+    - name: Real Estate
+      description: Ownership and operation of one of the world's largest networks of cold storage warehouses across North America, Europe, Australia, New Zealand, and South America
+
+crossReference:
+  - resource: Warehouse Shipping Order
+    operations: [send, receive, modify, cancel]
+    workflows: [Cold Chain Outbound Fulfillment]
+    personas: [Supply Chain Planner, Depositor EDI Analyst, Americold Operations]
+  - resource: Warehouse Shipping Advice
+    operations: [send, reconcile]
+    workflows: [Cold Chain Outbound Fulfillment]
+    personas: [Depositor EDI Analyst, Supply Chain Planner]
+  - resource: Warehouse Stock Transfer Shipment Advice
+    operations: [send, receive]
+    workflows: [Stock Transfer Between Facilities]
+    personas: [Supply Chain Planner, Americold Operations]
+  - resource: Warehouse Stock Transfer Receipt Advice
+    operations: [send, confirm]
+    workflows: [Stock Transfer Between Facilities]
+    personas: [Americold Operations, Supply Chain Planner]
+  - resource: Warehouse Inventory Adjustment Advice
+    operations: [send, reconcile]
+    workflows: [Inventory Visibility]
+    personas: [Inventory Manager, Depositor EDI Analyst]
+  - resource: Inventory Snapshot
+    operations: [view, export, monitor]
+    workflows: [Inventory Visibility]
+    personas: [Supply Chain Planner, Inventory Manager, Depositor Customer Service]
+  - resource: Order
+    operations: [create, modify, cancel, track]
+    workflows: [Cold Chain Outbound Fulfillment]
+    personas: [Supply Chain Planner, Depositor Logistics]
+  - resource: Appointment
+    operations: [book, modify, cancel]
+    workflows: [Dock Appointment Scheduling]
+    personas: [Carrier Dispatch, Depositor Logistics]
+  - resource: Report
+    operations: [run, schedule, export]
+    workflows: [Inventory Visibility]
+    personas: [Inventory Manager, Supply Chain Planner]
+  - resource: Alert
+    operations: [configure, receive, acknowledge]
+    workflows: [Inventory Visibility]
+    personas: [Inventory Manager, Supply Chain Planner]
+  - resource: Lot
+    operations: [trace, hold, release]
+    workflows: [Lot Traceability and Recall]
+    personas: [Quality Assurance, Food Safety Officer, Inventory Manager]

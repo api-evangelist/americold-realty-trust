@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/americold-realty-trust/refs/heads/main/json-structure/americold-i-3pl-inventory-snapshot-structure.json",
+  "name": "AmericoldI3plInventorySnapshot",
+  "description": "A point-in-time inventory snapshot from the Americold i-3PL platform reporting on-hand quantities, lot status, and storage conditions for a depositor's product across one or more Americold cold storage facilities.",
+  "type": "object",
+  "properties": {
+    "snapshotId": {"type": "uuid", "example": "f7c1a08e-2b3c-4d5e-9a17-3e2c84a9b001"},
+    "snapshotDate": {"type": "datetime", "example": "2026-05-05T06:00:00Z"},
+    "depositorId": {"type": "string", "example": "DEP-49021"},
+    "depositorName": {"type": "string", "example": "Sunrise Frozen Foods, Inc."},
+    "facilityCode": {"type": "string", "example": "ATL-04"},
+    "facilityName": {"type": "string", "example": "Americold Atlanta Forest Park"},
+    "temperatureZone": {"type": "string", "example": "Frozen"},
+    "lots": {
+      "type": "array",
+      "description": "Lot-level inventory positions in the snapshot",
+      "items": {"$ref": "#/$defs/InventoryLot"}
+    },
+    "totalCases": {"type": "int32", "example": 12480},
+    "totalPallets": {"type": "int32", "example": 520},
+    "totalWeightLbs": {"type": "double", "example": 249600.0}
+  },
+  "required": ["snapshotId", "snapshotDate", "depositorId", "facilityCode", "lots"],
+  "$defs": {
+    "InventoryLot": {
+      "type": "object",
+      "description": "A single lot-level inventory position within an i-3PL snapshot",
+      "properties": {
+        "sku": {"type": "string", "example": "SKU-FROZEN-CHKN-12CT"},
+        "gtin": {"type": "string", "example": "00819472003217"},
+        "productDescription": {"type": "string", "example": "Frozen Chicken Breast 12ct Case"},
+        "lotNumber": {"type": "string", "example": "LOT-26W18-0042"},
+        "manufactureDate": {"type": "date", "example": "2026-04-30"},
+        "expirationDate": {"type": "date", "example": "2027-02-15"},
+        "casesOnHand": {"type": "int32", "example": 1240},
+        "casesAvailable": {"type": "int32", "example": 1180},
+        "casesCommitted": {"type": "int32", "example": 60},
+        "casesOnHold": {"type": "int32", "example": 0},
+        "weightLbs": {"type": "double", "example": 24800.0},
+        "status": {"type": "string", "example": "Available"},
+        "lastReceivedDate": {"type": "datetime", "example": "2026-05-01T11:14:00Z"}
+      },
+      "required": ["sku", "lotNumber", "casesOnHand", "status"]
+    }
+  }
+}

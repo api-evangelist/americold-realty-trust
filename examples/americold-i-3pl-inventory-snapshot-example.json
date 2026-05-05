@@ -1,0 +1,59 @@
+{
+  "snapshotId": "f7c1a08e-2b3c-4d5e-9a17-3e2c84a9b001",
+  "snapshotDate": "2026-05-05T06:00:00Z",
+  "depositorId": "DEP-49021",
+  "depositorName": "Sunrise Frozen Foods, Inc.",
+  "facilityCode": "ATL-04",
+  "facilityName": "Americold Atlanta Forest Park",
+  "temperatureZone": "Frozen",
+  "lots": [
+    {
+      "sku": "SKU-FROZEN-CHKN-12CT",
+      "gtin": "00819472003217",
+      "productDescription": "Frozen Chicken Breast 12ct Case",
+      "lotNumber": "LOT-26W18-0042",
+      "manufactureDate": "2026-04-30",
+      "expirationDate": "2027-02-15",
+      "casesOnHand": 1240,
+      "casesAvailable": 1180,
+      "casesCommitted": 60,
+      "casesOnHold": 0,
+      "weightLbs": 24800.0,
+      "status": "Available",
+      "lastReceivedDate": "2026-05-01T11:14:00Z"
+    },
+    {
+      "sku": "SKU-FROZEN-VEG-MIX-6CT",
+      "gtin": "00819472004115",
+      "productDescription": "Frozen Mixed Vegetables 6ct Case",
+      "lotNumber": "LOT-26W17-0119",
+      "manufactureDate": "2026-04-23",
+      "expirationDate": "2027-04-01",
+      "casesOnHand": 980,
+      "casesAvailable": 800,
+      "casesCommitted": 180,
+      "casesOnHold": 0,
+      "weightLbs": 11760.0,
+      "status": "Available",
+      "lastReceivedDate": "2026-04-25T09:02:00Z"
+    },
+    {
+      "sku": "SKU-FROZEN-FISH-FLT-8CT",
+      "gtin": "00819472005228",
+      "productDescription": "Frozen Cod Fillets 8ct Case",
+      "lotNumber": "LOT-26W14-0007",
+      "manufactureDate": "2026-04-02",
+      "expirationDate": "2026-12-30",
+      "casesOnHand": 320,
+      "casesAvailable": 0,
+      "casesCommitted": 0,
+      "casesOnHold": 320,
+      "weightLbs": 6400.0,
+      "status": "Hold",
+      "lastReceivedDate": "2026-04-04T15:48:00Z"
+    }
+  ],
+  "totalCases": 2540,
+  "totalPallets": 106,
+  "totalWeightLbs": 42960.0
+}
