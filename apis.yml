@@ -1,0 +1,67 @@
+aid: americold-realty-trust
+url: https://github.com/api-evangelist/americold-realty-trust
+name: Americold Realty Trust
+type: Index
+image: https://www.americold.com/favicon.ico
+tags:
+  - Cold Storage
+  - Logistics
+  - Supply Chain
+  - Warehousing
+  - Real Estate
+  - Temperature-Controlled
+description: Americold Realty Trust is a global leader in temperature-controlled logistics, real estate, and value-added services, owning and operating one of the largest networks of cold storage warehouses in the world. The company serves food producers, retailers, and distributors with integrated logistics solutions, offering technology platforms such as i-3PL and EDI for supply chain visibility and integration. While Americold provides customer-facing technology and integration capabilities, it does not currently publish a public developer-facing API portal with open documentation.
+created: '2026-05-04'
+modified: '2026-05-04'
+specificationVersion: '0.19'
+apis:
+  - aid: americold-i-3pl
+    name: Americold i-3PL Platform
+    humanURL: https://www.americold.com/technology-automation/i-3pl/
+    description: i-3PL is Americold's customer-facing digital supply chain platform offering real-time inventory tracking, order management, appointment scheduling, and 40+ reporting tools across the Americold network. The platform supports integration with customer ERP systems for seamless data exchange but does not publish open public API documentation.
+    tags:
+      - Logistics
+      - Supply Chain
+      - Cold Storage
+    properties:
+      - type: Portal
+        url: https://www.i-3pl.com/login
+      - type: Documentation
+        url: https://www.americold.com/technology-automation/i-3pl/
+      - type: Support
+        url: https://www.americold.com/contact-us/
+  - aid: americold-edi
+    name: Americold EDI
+    humanURL: https://www.americold.com/technology-automation/edi-electronic-data-interchange/
+    description: Americold provides Electronic Data Interchange (EDI) capabilities for automated data exchange between Americold and customer systems, supporting orders, inventory, shipments, and other supply chain transactions.
+    tags:
+      - EDI
+      - Integration
+      - Supply Chain
+    properties:
+      - type: Documentation
+        url: https://www.americold.com/technology-automation/edi-electronic-data-interchange/
+      - type: Support
+        url: https://www.americold.com/contact-us/
+common:
+  - type: Website
+    url: https://www.americold.com
+  - type: Portal
+    url: https://www.i-3pl.com/login
+  - type: TechnologyAutomation
+    url: https://www.americold.com/technology-automation/
+  - type: CustomerResources
+    url: https://www.americold.com/customer-resources/
+  - type: Contact
+    url: https://www.americold.com/contact-us/
+  - type: Careers
+    url: https://www.americold.com/careers/
+  - type: InvestorRelations
+    url: https://ir.americold.com
+  - type: PrivacyPolicy
+    url: https://www.americold.com/privacy-policy/
+  - type: TermsOfService
+    url: https://www.americold.com/terms-of-use/
+maintainers:
+  - FN: API Evangelist
+    url: https://apievangelist.com
