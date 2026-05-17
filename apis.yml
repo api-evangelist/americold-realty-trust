@@ -220,7 +220,7 @@ common:
           Americold can integrate its supply chain management systems
           (WMS, LMS, TMS, WES) with a customer's ERP system for seamless
           information flow.
-  - type: JSON-LD
+  - type: JSONLD
     url: >-
       https://raw.githubusercontent.com/api-evangelist/americold-realty-trust/refs/heads/main/json-ld/americold-realty-trust-context.jsonld
     title: Americold Realty Trust JSON-LD Context
