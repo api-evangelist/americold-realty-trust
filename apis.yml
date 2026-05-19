@@ -109,6 +109,8 @@ apis:
         url: examples/americold-edi-warehouse-shipping-advice-example.json
         title: EDI Warehouse Shipping Advice (945) Example
 common:
+  - type: LinkedIn
+    url: https://www.linkedin.com/showcase/americold-realty
   - type: Website
     url: https://www.americold.com
   - type: Portal
