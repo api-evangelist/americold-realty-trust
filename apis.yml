@@ -230,6 +230,8 @@ common:
     url: >-
       https://raw.githubusercontent.com/api-evangelist/americold-realty-trust/refs/heads/main/vocabulary/americold-realty-trust-vocabulary.yaml
     title: Americold Realty Trust Vocabulary
+  - type: LLMsTxt
+    url: https://americold.com/llms.txt
 maintainers:
   - FN: API Evangelist
     url: https://apievangelist.com
