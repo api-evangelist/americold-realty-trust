@@ -62,7 +62,7 @@ apis:
       - type: JSONStructure
         url: json-structure/americold-i-3pl-inventory-snapshot-structure.json
         title: i-3PL Inventory Snapshot Structure
-      - type: Example
+      - type: Examples
         url: examples/americold-i-3pl-inventory-snapshot-example.json
         title: i-3PL Inventory Snapshot Example
   - aid: americold-edi
@@ -102,10 +102,10 @@ apis:
       - type: JSONStructure
         url: json-structure/americold-edi-warehouse-shipping-advice-structure.json
         title: EDI Warehouse Shipping Advice (945) Structure
-      - type: Example
+      - type: Examples
         url: examples/americold-edi-warehouse-shipping-order-example.json
         title: EDI Warehouse Shipping Order (940) Example
-      - type: Example
+      - type: Examples
         url: examples/americold-edi-warehouse-shipping-advice-example.json
         title: EDI Warehouse Shipping Advice (945) Example
 common:
@@ -230,7 +230,7 @@ common:
     url: >-
       https://raw.githubusercontent.com/api-evangelist/americold-realty-trust/refs/heads/main/vocabulary/americold-realty-trust-vocabulary.yaml
     title: Americold Realty Trust Vocabulary
-  - type: LLMsTxt
+  - type: LlmsText
     url: https://americold.com/llms.txt
 maintainers:
   - FN: API Evangelist
