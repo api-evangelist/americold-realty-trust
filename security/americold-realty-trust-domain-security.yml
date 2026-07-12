@@ -1,0 +1,28 @@
+generated: '2026-07-11'
+method: probed
+source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
+hosts:
+- host: www.americold.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Aug 18 07:44:23 2026 GMT
+  hsts: true
+  hsts_max_age: 63072000
+- host: www.i-3pl.com
+  https: true
+  tls_version: TLSv1.2
+  cert_expires: Oct  6 23:59:59 2026 GMT
+  hsts: true
+  hsts_max_age: 300
+domains:
+- domain: americold.com
+  dnssec: false
+  caa: []
+  spf: true
+  dmarc: true
+  dmarc_policy: none
+- domain: i-3pl.com
+  dnssec: false
+  caa: []
+  spf: false
+  dmarc: false

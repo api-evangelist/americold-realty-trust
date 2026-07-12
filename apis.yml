@@ -109,6 +109,8 @@ apis:
         url: examples/americold-edi-warehouse-shipping-advice-example.json
         title: EDI Warehouse Shipping Advice (945) Example
 common:
+  - type: DomainSecurity
+    url: security/americold-realty-trust-domain-security.yml
   - type: LinkedIn
     url: https://www.linkedin.com/showcase/americold-realty
   - type: Website
@@ -232,6 +234,8 @@ common:
     title: Americold Realty Trust Vocabulary
   - type: LlmsText
     url: https://americold.com/llms.txt
+  - url: https://www.americold.com/news
+    type: Blog
 maintainers:
   - FN: API Evangelist
     url: https://apievangelist.com
