@@ -1,0 +1,14 @@
+{
+  "repo": "americold-realty-trust",
+  "feeds": [
+    {
+      "source": "https://www.americold.com/news",
+      "feed_url": "https://www.americold.com/feed/",
+      "title": "",
+      "saved": 0,
+      "method": "discovered"
+    }
+  ],
+  "fetched": "2026-07-11T11:50:51Z",
+  "post_count": 17
+}
