@@ -39,7 +39,7 @@ description: >-
   EDI onboarding process.
 created: '2026-05-04'
 modified: '2026-05-05'
-specificationVersion: '0.19'
+specificationVersion: '0.23'
 apis:
   - aid: americold-i-3pl
     name: Americold i-3PL Platform
