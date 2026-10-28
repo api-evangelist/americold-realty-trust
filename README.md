@@ -1,4 +1,4 @@
-# Americold Realty Trust (americold-realty-trust)
+# Americold Realty Trust
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,137 +64,147 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Americold Realty Trust is a global leader in temperature-controlled logistics, real estate, and value-added services, owning and operating one of the largest networks of cold storage warehouses in the world. The company serves food producers, retailers, and distributors with integrated logistics solutions, offering technology platforms such as i-3PL for customer-facing inventory and order visibility and EDI for system-to-system supply chain integration. While Americold provides customer-facing technology and integration capabilities, it does not currently publish a public developer-facing API portal with open OpenAPI documentation; integrations are established project-by-project through the Americold service desk and EDI onboarding process. Fortune 2024 (rank 955).
+Americold Realty Trust is a global leader in temperature-controlled logistics, real estate, and value-added services, owning and operating one of the largest networks of cold storage warehouses in the world. The company serves food producers, retailers, and distributors with integrated logistics solutions, offering technology platforms such as i-3PL for customer-facing inventory and order visibility and EDI for system-to-system supply chain integration. While Americold provides customer-facing technology and integration capabilities, it does not currently publish a public developer-facing API portal with open OpenAPI documentation; integrations are established project-by-project through the Americold service desk and EDI onboarding process.
 
-**URL:** [Visit APIs.json](https://raw.githubusercontent.com/api-evangelist/americold-realty-trust/refs/heads/main/apis.yml)
+**Areas:** Cold Storage · Logistics · Supply Chain · Warehousing · Real Estate · Temperature Controlled · Cold Chain · EDI · 3PL
 
-## Tags:
+## Americold Realty Trust on APIs.io
 
- - Cold Storage, Logistics, Supply Chain, Warehousing, Real Estate, Temperature-Controlled, Cold Chain, EDI, 3PL
+Everything profiled for Americold Realty Trust is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/americold-realty-trust/](https://apis.io/providers/americold-realty-trust/)** — or go straight to one of the APIs or properties below.
 
-## Timestamps
+### APIs (2)
 
-- **Created:** 2026-05-04
-- **Modified:** 2026-05-05
+- [Americold i-3PL Platform](https://apis.io/apis/americold-realty-trust/americold-i-3pl/) — i-3PL is Americold's customer-facing digital supply chain platform offering real-time inventory tracking, order management, dock appointment scheduling,…
+- [Americold EDI](https://apis.io/apis/americold-realty-trust/americold-edi/) — Americold provides Electronic Data Interchange (EDI) capabilities for automated data exchange between Americold and depositor (customer) systems, supporting…
 
-## APIs
+### Published properties
 
-### Americold i-3PL Platform
-i-3PL is Americold's customer-facing digital supply chain platform offering real-time inventory tracking, order management, dock appointment scheduling, customizable alerts, and 40+ reporting tools across the Americold network. The platform supports integration with customer ERP systems for seamless data exchange but does not publish open public API documentation; programmatic integration is coordinated with the Americold Service Desk.
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-**Human URL:** [https://www.americold.com/technology-automation/i-3pl/](https://www.americold.com/technology-automation/i-3pl/)
+#### JSON Schema (3)
 
-#### Tags:
+The data models the API reads and writes.
 
- - Logistics, Supply Chain, Cold Storage, 3PL, Inventory, Reporting
+- [AmericoldEdiWarehouseShippingAdvice](https://apis.io/schemas/americold-realty-trust/americold-edi-warehouse-shipping-advice/)
+- [AmericoldEdiWarehouseShippingOrder](https://apis.io/schemas/americold-realty-trust/americold-edi-warehouse-shipping-order/)
+- [AmericoldI3plInventorySnapshot](https://apis.io/schemas/americold-realty-trust/americold-i-3pl-inventory-snapshot/)
 
-#### Properties
+#### JSON Structure (3)
 
-- [Portal](https://www.i-3pl.com/login)
-- [Documentation](https://www.americold.com/technology-automation/i-3pl/)
-- [Support](https://www.americold.com/contact-us/)
-- [i-3PL Inventory Snapshot Schema](json-schema/americold-i-3pl-inventory-snapshot-schema.json)
-- [i-3PL Inventory Snapshot Structure](json-structure/americold-i-3pl-inventory-snapshot-structure.json)
-- [i-3PL Inventory Snapshot Example](examples/americold-i-3pl-inventory-snapshot-example.json)
+Data models expressed in JSON Structure.
 
-### Americold EDI
-Americold provides Electronic Data Interchange (EDI) capabilities for automated data exchange between Americold and depositor (customer) systems, supporting orders, inventory, shipments, and other supply chain transactions. The integration uses the X12 warehousing 900-series transaction sets common across third-party logistics providers (940, 943, 944, 945, 947, 856, 846).
+- [Americold Edi Warehouse Shipping Advice Structure](https://apis.io/json-structure/americold-realty-trust/americold-edi-warehouse-shipping-advice-structure/)
+- [Americold Edi Warehouse Shipping Order Structure](https://apis.io/json-structure/americold-realty-trust/americold-edi-warehouse-shipping-order-structure/)
+- [Americold I 3Pl Inventory Snapshot Structure](https://apis.io/json-structure/americold-realty-trust/americold-i-3pl-inventory-snapshot-structure/)
 
-**Human URL:** [https://www.americold.com/technology-automation/edi-electronic-data-interchange/](https://www.americold.com/technology-automation/edi-electronic-data-interchange/)
+#### JSON-LD (1)
 
-#### Tags:
+Linked-data contexts for the provider's vocabulary.
 
- - EDI, Integration, Supply Chain, X12, 3PL, AS2
+- [Americold Realty Trust Context](https://apis.io/jsonld/americold-realty-trust/americold-realty-trust-context/)
 
-#### Properties
+#### Vocabulary (1)
 
-- [Documentation](https://www.americold.com/technology-automation/edi-electronic-data-interchange/)
-- [Support](https://www.americold.com/contact-us/)
-- [EDI Warehouse Shipping Order (940) Schema](json-schema/americold-edi-warehouse-shipping-order-schema.json)
-- [EDI Warehouse Shipping Advice (945) Schema](json-schema/americold-edi-warehouse-shipping-advice-schema.json)
-- [EDI Warehouse Shipping Order (940) Structure](json-structure/americold-edi-warehouse-shipping-order-structure.json)
-- [EDI Warehouse Shipping Advice (945) Structure](json-structure/americold-edi-warehouse-shipping-advice-structure.json)
-- [EDI Warehouse Shipping Order (940) Example](examples/americold-edi-warehouse-shipping-order-example.json)
-- [EDI Warehouse Shipping Advice (945) Example](examples/americold-edi-warehouse-shipping-advice-example.json)
+The provider's domain terms, defined.
 
-## Common Properties
+- [Americold Realty Trust Vocabulary](https://apis.io/vocabularies/americold-realty-trust/americold-realty-trust-vocabulary/)
+
+#### Examples (3)
+
+Example requests and responses.
+
+- [Americold Edi Warehouse Shipping Advice Example](https://apis.io/examples/americold-realty-trust/americold-edi-warehouse-shipping-advice-example/)
+- [Americold Edi Warehouse Shipping Order Example](https://apis.io/examples/americold-realty-trust/americold-edi-warehouse-shipping-order-example/)
+- [Americold I 3Pl Inventory Snapshot Example](https://apis.io/examples/americold-realty-trust/americold-i-3pl-inventory-snapshot-example/)
+
+#### Governance rules (1)
+
+Spectral rulesets for the provider's contracts.
+
+- [Americold Realty Trust — jsonschema rules](https://apis.io/rules/americold-realty-trust/americold-realty-trust-jsonschema-spectral-rules/)
+
+#### Security (1)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Americold Realty Trust Domain Security](https://apis.io/security/americold-realty-trust/americold-realty-trust-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Americold Realty Trust Plans Pricing](https://apis.io/plans/americold-realty-trust/americold-realty-trust-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Americold Realty Trust Rate Limits](https://apis.io/rate-limits/americold-realty-trust/americold-realty-trust-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Americold Realty Trust Finops](https://apis.io/finops/americold-realty-trust/americold-realty-trust-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Website](https://www.americold.com)
-- [Portal](https://www.i-3pl.com/login)
-- [Technology & Automation](https://www.americold.com/technology-automation/)
-- [Customer Resources](https://www.americold.com/customer-resources/)
-- [Contact](https://www.americold.com/contact-us/)
-- [Careers](https://www.americold.com/careers/)
-- [Investor Relations](https://ir.americold.com)
-- [Privacy Policy](https://www.americold.com/privacy-policy/)
-- [Terms of Service](https://www.americold.com/terms-of-use/)
-- [Americold Realty Trust JSON-LD Context](json-ld/americold-realty-trust-context.jsonld)
-- [Americold Realty Trust Vocabulary](vocabulary/americold-realty-trust-vocabulary.yaml)
+- [Blog](https://www.americold.com/news)
+- [Terms of service](https://www.americold.com/terms-of-use/)
+- [Privacy policy](https://www.americold.com/privacy-policy/)
 
-## Features
+## API Evangelist rating
 
-| Name | Description |
-|------|-------------|
-| Global Cold Storage Network | Americold owns and operates one of the largest networks of temperature-controlled warehouses worldwide, with facilities across North America, Europe, Australia, New Zealand, and South America serving food producers, processors, distributors, and retailers. |
-| i-3PL Customer Platform | Customer-facing digital platform delivering real-time inventory tracking, order management, dock appointment scheduling, customizable alerts, and over 40 reporting tools across the Americold network from phone, tablet, or desktop. |
-| EDI Supply Chain Integration | Standards-based X12 EDI exchange of warehousing transactions (940/943/944/945/947) and shipping/inventory transactions (856, 846) between Americold's WMS/TMS/LMS/WES and depositor ERP systems for real-time supply chain visibility. |
-| Lot-Level Traceability | Item-lot granularity for receipts, holds, releases, and shipments enables food-safety traceability, recall readiness, and FSMA / HACCP compliance across the cold chain. |
-| Multi-Temperature Zones | Storage and handling across deep-frozen, frozen, refrigerated, cooler, and ambient temperature zones with documented temperature requirements and load-temperature recording on outbound shipments. |
-| Value-Added Services | Blast freezing, pick and pack, labeling and relabeling, repacking, kitting, staging, cross-dock, sloughing/tempering, plus light assembly and food processing services provided alongside storage. |
+**Kin Score 27.9** — thin · rubric 0.24.0 · scored 2026-10-17
 
-## Use Cases
+| Facet | Score |
+|---|---|
+| Discoverability | 67.9 |
+| Contract quality | 33.2 |
+| Contract governance | 23.5 |
+| Operational transparency | 0.0 |
+| Developer ergonomics | 26.2 |
+| Access clarity | 21.1 |
 
-| Name | Description |
-|------|-------------|
-| Cold Chain Outbound Fulfillment | A depositor sends a 940 Warehouse Shipping Order to an Americold facility; Americold picks, stages, and ships product; a 945 Warehouse Shipping Advice returns to the depositor for ERP reconciliation. |
-| Inventory Visibility for Food Manufacturers | Frozen and refrigerated food manufacturers monitor on-hand, available, committed, and held inventory across Americold facilities using i-3PL snapshots, dashboards, and reports. |
-| Dock Appointment Scheduling | Carriers and depositor logistics teams book, modify, and cancel dock appointments at Americold facilities through i-3PL to optimize throughput and reduce dwell time. |
-| Lot Traceability and Recall | Quality assurance and food safety teams trace a lot from receipt through every shipment to support recalls and regulatory holds. |
-| Stock Transfer Between Facilities | Move inventory between Americold facilities using 943/944 transfer transactions to balance network inventory and meet regional demand. |
-| ERP-to-WMS Integration | Connect SAP, Oracle, NetSuite, Microsoft Dynamics, and other ERP systems to Americold's WMS through EDI and managed integration partners. |
+**Agent readiness 1.3** — human-only
 
-## Integrations
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | documented (partial credit) |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
 
-| Name | Description |
-|------|-------------|
-| SPS Commerce | SPS Commerce provides pre-built EDI connections used by depositors and 3PL trading partners to exchange warehousing transaction sets with Americold over a managed network. |
-| Stedi | Stedi's API-first EDI platform is used by modern engineering teams to translate, validate, and exchange X12 warehouse transactions with Americold programmatically. |
-| Cleo Integration Cloud | Cleo provides AS2, SFTP, and API integration tooling commonly used to connect depositor ERP systems to 3PL warehouse partners like Americold. |
-| SAP and Oracle ERP | Americold integrates with leading enterprise ERP systems via EDI for orders, inventory, and shipping reconciliation across the depositor's order-to-cash and procure-to-pay processes. |
-| Customer ERP Systems | Americold can integrate its supply chain management systems (WMS, LMS, TMS, WES) with a customer's ERP system for seamless information flow. |
+**Regulatory alignment 18.6** — Horizontal (data, software, accessibility, platform)
 
-## Artifacts
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/americold-realty-trust/](https://apis.io/providers/americold-realty-trust/).
 
-Machine-readable specifications organized by format. Note: Americold does not publish a public OpenAPI specification; the artifacts below model the EDI and i-3PL data domain that customers integrate with.
+## How this profile is made
 
-### JSON Schema
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
 
-- [EDI Warehouse Shipping Order (940) Schema](json-schema/americold-edi-warehouse-shipping-order-schema.json)
-- [EDI Warehouse Shipping Advice (945) Schema](json-schema/americold-edi-warehouse-shipping-advice-schema.json)
-- [i-3PL Inventory Snapshot Schema](json-schema/americold-i-3pl-inventory-snapshot-schema.json)
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Americold Realty Trust: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
 
-### JSON Structure
+## Open an issue
 
-- [EDI Warehouse Shipping Order (940) Structure](json-structure/americold-edi-warehouse-shipping-order-structure.json)
-- [EDI Warehouse Shipping Advice (945) Structure](json-structure/americold-edi-warehouse-shipping-advice-structure.json)
-- [i-3PL Inventory Snapshot Structure](json-structure/americold-i-3pl-inventory-snapshot-structure.json)
-
-### JSON-LD
-
-- [Americold Realty Trust Context](json-ld/americold-realty-trust-context.jsonld)
-
-### Examples
-
-- [EDI Warehouse Shipping Order (940) Example](examples/americold-edi-warehouse-shipping-order-example.json)
-- [EDI Warehouse Shipping Advice (945) Example](examples/americold-edi-warehouse-shipping-advice-example.json)
-- [i-3PL Inventory Snapshot Example](examples/americold-i-3pl-inventory-snapshot-example.json)
-
-## Vocabulary
-
-- [Americold Realty Trust Vocabulary](vocabulary/americold-realty-trust-vocabulary.yaml) — Unified taxonomy mapping 11 resources, 9 actions, 5 workflows, and 9 personas across Americold's cold-chain logistics, EDI integration, and i-3PL platform landscape.
-
-## Maintainers
-
-**FN:** API Evangelist
-
-**URL:** [https://apievangelist.com](https://apievangelist.com)
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/americold-realty-trust/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
